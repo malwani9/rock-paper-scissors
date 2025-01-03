@@ -74,5 +74,3 @@ function playGame(rounds = 5){
    }
    return gameWinMassage;
 }
-
-console.log(playGame()); 
