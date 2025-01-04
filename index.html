@@ -9,30 +9,31 @@
 <body>
     <header>
         <h1>RSP Game!</h1>
-        <p id="description">Rock! Paper! Scissors!.</p>
-        <ul>
-            <li><strong>Rounds:</strong> 5 rounds.</li>
-            <li><strong>Rules:</strong>
-                <ul>
-                    <li>Rock beats Scissors</li>
-                    <li>Paper beats Rock</li>
-                    <li>Scissors beats Paper</li>
-                </ul>
-            </li>
-        </ul>
+        <p>Rock! Paper! Scissors!.</p>
+        <p>
+          <strong>Rounds: </strong>5 rounds.
+        </p>
+        <p><strong>Rules: </strong>
+          Rock beats Scissors | 
+          Paper beats Rock  |
+          Scissors beats Paper
+        </p>
         <hr>
       </header>
+
     <div id="container">
-      <div id="results">
         <div id="score">
-            <p>Player Score: <span class="score-number"></span></p>
-            <p>Computer Score: <span class="score-number"></span></p>
+          <div id="player">
+            Player Score:  <span class="score-number"></span> 
+          </div>
+          <div id="computer">
+            Computer Score: <span class="score-number"></span> 
+          </div>
         </div>
         <div id="messages">
             <p id="round-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem</p>
             <p id="Game-message">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto.</p>
         </div>
-      </div>
       <div id="choices">
         <button class="choice-button">Rock</button>
         <button class="choice-button">Paper</button>

@@ -2,4 +2,60 @@ body{
     background-color: #213555;
     color: #F5EFE7;
     font-family: "IBMPlexMono", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header h1, header p{
+    text-align: center;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    
+    width: 700px;
+    height: 300px;
+    border: 1em solid #D8C4B6;
+}
+
+#score{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 25px;
+  padding: 30px;
+}
+
+#player, #computer{
+    background-color: #3E5879;
+    padding: 5px
+}
+
+#messages{
+    text-align: center;
+    padding-bottom: 35px;
+}
+
+#choices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+} 
+
+.choice-button{
+    padding: 5px;
+    width: 90px;
+    background-color: #F5EFE7;
+}
+
+.choice-button:hover{
+    background-color: #D8C4B6;
+    cursor: pointer;
 }
