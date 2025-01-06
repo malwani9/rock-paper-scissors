@@ -24,20 +24,20 @@
     <div id="container">
         <div id="score">
           <div id="player">
-            Player Score:  <span class="score-number"></span> 
+            Player Score:  <span id="player-score"></span> 
           </div>
           <div id="computer">
-            Computer Score: <span class="score-number"></span> 
+            Computer Score: <span id="computer-score"></span> 
           </div>
         </div>
         <div id="messages">
-            <p id="round-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem</p>
-            <p id="Game-message">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto.</p>
+            <p id="round-message"></p>
+            <p id="Game-message"></p>
         </div>
       <div id="choices">
-        <button class="choice-button">Rock</button>
-        <button class="choice-button">Paper</button>
-        <button class="choice-button">Scissors</button>
+        <button class="choice-button" id="rock" value="rock">Rock</button>
+        <button class="choice-button" id="paper" value="paper">Paper</button>
+        <button class="choice-button" id="scissors" value="scissors">Scissors</button>
       </div>
     </div>
     <script src="script.js"></script>

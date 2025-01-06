@@ -1,33 +1,32 @@
 function getComputerChoice() {
   choices = ["Rock", "Paper", "Scissors"];
   let index = Math.floor(Math.random() * 3);
-  let comupterChoice = choices[index];
+  comupterChoice = choices[index];
   return comupterChoice;
 }
 
-function getPlayerChoice() {
-  let playerChoice = prompt("Choices: 0. Rock 1. Paper 2. Scissors", "").toLowerCase();
-  if (playerChoice == "rock" || playerChoice == 0) {
+
+function getPlayerChoice(event) {
+  let playerChoice;
+  if(event.target.id == "rock"){
     playerChoice = "Rock";
-  } else if (playerChoice == "paper" || playerChoice == 1) {
+  }else if(event.target.id == "paper"){
     playerChoice = "Paper";
-  } else if (playerChoice == "scissors" || playerChoice == 2) {
+  }else if(event.target.id == "scissors"){
     playerChoice = "Scissors";
-  } else {
-    console.log("Invalid Choice");
-    playerChoice = "InValid";
   }
   return playerChoice;
 }
 
+let  computerChoice;
+let playerChoice;
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
+let rounds = 0;
 
-function playRound(computerChoice, playerChoice) {
-  computerChoice = getComputerChoice();
-  playerChoice = getPlayerChoice();
-  let roundWinMessage = ``;
+function playRound() {
+  let roundWinMessage = "";
 
   if (playerChoice == "Rock" && computerChoice == "Scissors") {
     roundWinMessage = `You Won! ${playerChoice} beats ${computerChoice}`;
@@ -45,32 +44,50 @@ function playRound(computerChoice, playerChoice) {
     roundWinMessage = `Computer Won! ${computerChoice} beats ${playerChoice}`;
     computerScore++;
   }
-
+  rounds = playerScore + computerScore + tieScore;
   return roundWinMessage;
 }
 
-function playGame(rounds = 5){
-    let gameWinMassage = ``;
-   for(let i = 1; i <= rounds; i++){
-     playRound();
-   
+function showResult(event){
+  computerChoice = getComputerChoice();
+  playerChoice = getPlayerChoice(event);
+  ROUNDMESSAGE.textContent = playRound();
+  PLAYERSCORE.textContent = playerScore;
+  COMPUTERSCORE.textContent = computerScore;
+  if(rounds === 5){
+    playGame();
+  }
+}
+
+function playGame(){
    if (playerScore > computerScore){
-     gameWinMassage = `Player Won the game :). \n 
+     GAMEMESSAGE.textContent = `Player Won the game :). \n 
                         player socre: ${playerScore} \n
                         computer score: ${computerScore} \n
                         Ties: ${tieScore}`; 
    }else if (playerScore == computerScore){
-    gameWinMassage = `Tie! Game -_-. \n 
+    GAMEMESSAGE.textContent = `Tie! Game -_-. \n 
     player socre: ${playerScore} \n
     computer score: ${computerScore}
      Ties: ${tieScore}`; 
    }else{
-    gameWinMassage = `Computer Won the game :(. \n 
+    GAMEMESSAGE.textContent = `Computer Won the game :(. \n 
                         player socre: ${playerScore} \n
                         computer score: ${computerScore} \n
                         Ties: ${tieScore}`;
                          
    }
-   }
-   return gameWinMassage;
 }
+
+let rockButton = document.getElementById('rock');
+let paperButton = document.getElementById('paper');
+let scissorsButton = document.getElementById('scissors');
+
+rockButton.addEventListener("click", showResult);
+paperButton.addEventListener("click", showResult);
+scissorsButton.addEventListener("click", showResult);
+
+let ROUNDMESSAGE = document.getElementById('round-message');
+let GAMEMESSAGE = document.getElementById('Game-message');
+let PLAYERSCORE = document.getElementById('player-score');
+let COMPUTERSCORE = document.getElementById('computer-score');
